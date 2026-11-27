@@ -1,145 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Singularity — See the Full Picture</title>
-<link href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts.geist.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-<style>
-:root{--bg:#0a0a0f;--bg-elev:#12121a;--border:#1f1f2e;--border-strong:#2a2a3d;--text:#f5f5f7;--text-dim:#9a9aa8;--accent:#6e5cff;--accent-soft:rgba(110,92,255,.12);--accent-glow:rgba(110,92,255,.28);--success:#34d399;--warn:#fbbf24;--radius-pill:999px;--radius-card:16px;--radius-btn:10px;--space-section:clamp(4rem,10vw,7rem)}
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:'Geist','Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}a{color:inherit;text-decoration:none}em{font-family:'Libre Baskerville',Georgia,serif;font-style:italic;font-weight:400;color:var(--accent)}.container{width:min(1120px,92%);margin-inline:auto}
-@keyframes marquee-scroll{to{transform:translateX(-50%)}}
-.reveal{opacity:0;transform:translateY(12px);transition:opacity .4s ease-out,transform .4s ease-out}.reveal.visible{opacity:1;transform:translateY(0)}.reveal-d1{transition-delay:60ms}.reveal-d2{transition-delay:120ms}.reveal-d3{transition-delay:180ms}
-.marquee{background:linear-gradient(90deg,#1a1528,#1e1830);overflow:hidden;border-bottom:1px solid var(--border);height:44px;display:flex;align-items:center}.marquee__track{display:flex;width:max-content;animation:marquee-scroll 32s linear infinite}.marquee:hover .marquee__track{animation-play-state:paused}.marquee__item{display:flex;align-items:center;gap:.75rem;padding:0 2.5rem;font-size:.875rem;color:#d4d0e8;white-space:nowrap}.marquee__item a{background:var(--accent);color:#fff;font-weight:600;font-size:.78rem;padding:.22rem .7rem;border-radius:var(--radius-pill)}
-header{position:sticky;top:0;z-index:50;background:rgba(10,10,15,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}.nav{display:flex;align-items:center;justify-content:space-between;height:60px}.logo{display:flex;align-items:center;gap:.5rem;font-weight:600;font-size:1.05rem;letter-spacing:-.03em}.logo-mark{font-size:1.35rem}.logo-mark .star{color:var(--accent);font-size:.7em;vertical-align:super;margin-left:-2px}.nav-links{display:flex;gap:1.75rem;font-size:.9rem;color:var(--text-dim);font-weight:500}.nav-links a:hover{color:var(--text)}.nav-cta{display:flex;gap:.6rem}
-.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.5rem 1.1rem;border-radius:var(--radius-btn);font-weight:600;font-size:.875rem;transition:all .15s;border:none;cursor:pointer}.btn:active{transform:scale(.98)}.btn-primary{background:var(--text);color:var(--bg)}.btn-primary:hover{background:#fff}.btn-ghost{background:transparent;color:var(--text-dim);border:1px solid var(--border)}.btn-ghost:hover{color:var(--text);border-color:var(--border-strong)}.btn-accent{background:var(--accent);color:#fff}.btn-accent:hover{filter:brightness(1.12);box-shadow:0 0 0 1px var(--border),0 8px 24px var(--accent-glow)}.whisper{font-size:.8rem;color:var(--text-dim);margin-top:.55rem}
-.hero{padding:clamp(4rem,9vw,6.5rem) 0 3.5rem;text-align:center;position:relative}.hero::before{content:'';position:absolute;top:-10%;left:50%;transform:translateX(-50%);width:70%;height:60%;background:radial-gradient(ellipse,rgba(110,92,255,.13),transparent 68%);pointer-events:none}.badge-row{display:inline-flex;align-items:center;gap:.6rem;background:var(--bg-elev);border:1px solid var(--border);padding:.35rem .95rem .35rem .4rem;border-radius:var(--radius-pill);font-size:.82rem;color:var(--text-dim);margin-bottom:1.75rem}.badge-row .stars{color:var(--warn);letter-spacing:1px}.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:500;line-height:1.1;letter-spacing:-.03em;max-width:14ch;margin:0 auto 1.25rem}.hero-sub{color:var(--text-dim);font-size:1.1rem;max-width:34rem;margin:0 auto 2rem}.hero-actions{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
-.badge{display:inline-flex;align-items:center;font-size:.72rem;font-weight:600;letter-spacing:.04em;padding:.22rem .6rem;border-radius:var(--radius-pill);text-transform:uppercase}.badge-tier{background:var(--accent-soft);color:var(--accent)}.badge-status{background:rgba(255,255,255,.06);color:var(--text-dim)}.badge-save{background:rgba(52,211,153,.12);color:var(--success)}
-section{padding:var(--space-section) 0}.eyebrow{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);font-weight:600;margin-bottom:.55rem}.section-title{font-size:clamp(2rem,4vw,3rem);font-weight:500;letter-spacing:-.02em;line-height:1.15;margin-bottom:.7rem}.section-desc{color:var(--text-dim);max-width:32rem;margin-bottom:2.5rem;font-size:1.05rem}
-.product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}.product-card{background:var(--bg-elev);border:1px solid var(--border);border-radius:var(--radius-card);padding:1.35rem;display:flex;flex-direction:column;gap:.65rem;transition:transform .18s,border-color .18s,box-shadow .18s}.product-card:hover{transform:translateY(-2px);border-color:var(--border-strong);box-shadow:0 0 0 1px var(--border),0 8px 24px rgba(0,0,0,.35)}.product-card .title{font-size:1.15rem;font-weight:600;letter-spacing:-.02em;display:flex;align-items:center;gap:.35rem;flex-wrap:wrap}.product-card .outcome{font-size:.92rem;color:var(--text-dim)}.product-card .spec{font-size:.82rem;color:var(--text-dim);opacity:.85}.product-card .ctas{display:flex;gap:.5rem;margin-top:auto;padding-top:.75rem}.product-card .ctas .btn{font-size:.8rem;padding:.4rem .85rem}
-.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}.feature{background:var(--bg-elev);border:1px solid var(--border);border-radius:var(--radius-card);padding:1.4rem;transition:transform .18s,border-color .18s,box-shadow .18s}.feature:hover{transform:translateY(-2px);border-color:var(--border-strong);box-shadow:0 0 0 1px var(--border),0 8px 24px rgba(0,0,0,.35)}.feature .num{font-size:.72rem;font-weight:600;color:var(--accent);background:var(--accent-soft);width:fit-content;padding:.2rem .55rem;border-radius:6px;margin-bottom:.7rem}.feature h3{font-size:1.05rem;font-weight:600;margin-bottom:.35rem}.feature p{font-size:.9rem;color:var(--text-dim)}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem}.step{background:var(--bg-elev);border:1px solid var(--border);border-radius:var(--radius-card);padding:1.5rem}.step .label{font-size:.75rem;font-weight:700;letter-spacing:.08em;color:var(--accent);text-transform:uppercase;margin-bottom:.6rem}.step h3{font-size:1.25rem;font-weight:560;letter-spacing:-.02em;margin-bottom:.45rem}.step p{font-size:.9rem;color:var(--text-dim)}
-.testimonial-marquee{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}.testimonial-track{display:flex;width:max-content;gap:1rem;animation:marquee-scroll 55s linear infinite}.testimonial-marquee:hover .testimonial-track{animation-play-state:paused}.review{width:320px;flex-shrink:0;background:var(--bg-elev);border:1px solid var(--border);border-radius:var(--radius-card);padding:1.25rem}.review .stars{color:var(--warn);font-size:.78rem;margin-bottom:.55rem;letter-spacing:1px}.review p{font-size:.92rem;color:var(--text-dim);margin-bottom:.9rem}.review .author{font-size:.85rem;font-weight:600}.review .meta{font-size:.78rem;color:var(--text-dim)}
-.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.15rem}.plan{background:var(--bg-elev);border:1px solid var(--border);border-radius:var(--radius-card);padding:1.7rem;display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}.plan:hover{transform:translateY(-2px);box-shadow:0 0 0 1px var(--border),0 8px 24px rgba(0,0,0,.35)}.plan.featured{border-color:rgba(110,92,255,.45);background:linear-gradient(180deg,rgba(110,92,255,.08),var(--bg-elev) 50%);position:relative}.plan.featured::before{content:'Most popular';position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:.68rem;font-weight:700;padding:.22rem .7rem;border-radius:var(--radius-pill)}.plan-header{display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap;margin-bottom:.35rem}.plan h3{font-size:1.15rem;font-weight:600}.plan .billing{font-size:.82rem;color:var(--text-dim)}.plan .price-row{display:flex;align-items:baseline;gap:.5rem;margin:.75rem 0 .25rem}.plan .price{font-size:2.2rem;font-weight:650;letter-spacing:-.04em}.plan .old-price{font-size:1rem;color:var(--text-dim);text-decoration:line-through}.plan .period{font-size:.85rem;color:var(--text-dim);margin-bottom:1.2rem}.plan ul{list-style:none;flex:1;display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.4rem;font-size:.9rem;color:var(--text-dim)}.plan ul li::before{content:'✓ ';color:var(--success);font-weight:700}.plan .btn{width:100%;justify-content:center}
-.faq-search{width:100%;max-width:420px;background:var(--bg-elev);border:1px solid var(--border);border-radius:var(--radius-btn);padding:.65rem 1rem;color:var(--text);font-size:.95rem;margin-bottom:1.5rem;outline:none}.faq-search:focus{border-color:var(--accent)}.faq-list{max-width:720px;display:flex;flex-direction:column;gap:.55rem}details{background:var(--bg-elev);border:1px solid var(--border);border-radius:12px;padding:.95rem 1.1rem}details[open]{border-color:var(--border-strong)}summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;font-size:.95rem}summary::-webkit-details-marker{display:none}summary::after{content:'+';color:var(--text-dim);font-size:1.2rem}details[open] summary::after{content:'−'}details .answer{margin-top:.7rem;color:var(--text-dim);font-size:.92rem}details .answer a{color:var(--accent);font-weight:500;font-size:.85rem;display:inline-block;margin-top:.5rem}
-.final-cta{text-align:center;padding:5rem 0;border-top:1px solid var(--border);background:linear-gradient(180deg,transparent,rgba(110,92,255,.04))}.final-cta h2{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:500;letter-spacing:-.03em;margin-bottom:.7rem}.final-cta p{color:var(--text-dim);margin-bottom:1.6rem}
-footer{background:var(--bg-elev);border-top:1px solid var(--border);padding:3rem 0 0;font-size:.875rem;color:var(--text-dim)}.footer-top{display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:2rem;margin-bottom:2.5rem}.footer-brand .logo{margin-bottom:.6rem}.footer-brand p{max-width:220px;font-size:.85rem}.footer-col h4{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text);font-weight:600;margin-bottom:.85rem}.footer-col a{display:block;margin-bottom:.45rem}.footer-col a:hover{color:var(--text)}.footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.75rem;padding-top:1.5rem;border-top:1px solid var(--border);font-size:.78rem}
-.giant-logo{font-size:clamp(5rem,20vw,14rem);font-weight:500;letter-spacing:-.045em;line-height:.8;text-align:center;margin-top:4rem;margin-bottom:-.5rem;padding-bottom:1.5rem;color:transparent;-webkit-text-stroke:1.25px rgba(255,255,255,.1);text-stroke:1.25px rgba(255,255,255,.1);user-select:none;pointer-events:none;overflow:hidden;white-space:nowrap;width:100%}
-@media(max-width:900px){.nav-links{display:none}.footer-top{grid-template-columns:1fr 1fr}}@media(max-width:560px){.footer-top{grid-template-columns:1fr}.product-grid{grid-template-columns:1fr}}
-</style>
-</head>
-<body>
-<div class="marquee"><div class="marquee__track">
-<div class="marquee__item">New: Session Atlas is now in public beta <a href="#products">Explore tools →</a></div>
-<div class="marquee__item">TradingView vendor rules changed — here's what you need to know <a href="#">Read our blog →</a></div>
-<div class="marquee__item">Ultimate+ members get early access to new models <a href="#pricing">View plans →</a></div>
-<div class="marquee__item">5-day free trial on every plan · Cancel anytime <a href="#pricing">Start free →</a></div>
-<div class="marquee__item">New: Session Atlas is now in public beta <a href="#products">Explore tools →</a></div>
-<div class="marquee__item">TradingView vendor rules changed — here's what you need to know <a href="#">Read our blog →</a></div>
-<div class="marquee__item">Ultimate+ members get early access to new models <a href="#pricing">View plans →</a></div>
-<div class="marquee__item">5-day free trial on every plan · Cancel anytime <a href="#pricing">Start free →</a></div>
-</div></div>
-<header><div class="container nav">
-<a href="#" class="logo"><span class="logo-mark">◎<span class="star">✦</span></span> singularity</a>
-<nav class="nav-links"><a href="#products">Products</a><a href="#why">Why us</a><a href="#pricing">Pricing</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a></nav>
-<div class="nav-cta"><a href="#pricing" class="btn btn-ghost">View plans</a><a href="#pricing" class="btn btn-primary">Get started</a></div>
-</div></header>
-<section class="hero"><div class="container">
-<div class="badge-row"><span class="stars">★★★★★</span><span>4.9 from 60+ traders</span></div>
-<h1>One look. <em>Complete</em> context.</h1>
-<p class="hero-sub">Singularity <em>closes the loop</em> between higher-timeframe structure, cross-asset agreement, gap life-cycles and nested time maps — one shared system so nothing fights on your chart.</p>
-<div class="hero-actions"><a href="#pricing" class="btn btn-primary">Get started →</a><a href="#products" class="btn btn-ghost">See the suite</a></div>
-<p class="whisper">Try for 5 days, completely free.</p>
-</div></section>
-<section id="why"><div class="container">
-<p class="eyebrow reveal">Why Singularity</p>
-<h2 class="section-title reveal">Four tools. One shared <em>system</em>.</h2>
-<p class="section-desc reveal">Analysis accuracy is non-negotiable. You rarely need to stitch tools from different vendors — if a new framework appears, we build it into the same system members already use.</p>
-<div class="features-grid">
-<div class="feature reveal"><div class="num">01</div><h3>Shared correlation engine</h3><p>Every tool reads the same asset relationships. When one instrument fills a gap or prints a divergence, the others already know.</p></div>
-<div class="feature reveal reveal-d1"><div class="num">02</div><h3>Clean by default</h3><p>Heavy customization is available, but the out-of-the-box view stays readable.</p></div>
-<div class="feature reveal reveal-d2"><div class="num">03</div><h3>Alert only on agreement</h3><p>Structure, divergence and trigger must align before an alert fires.</p></div>
-<div class="feature reveal reveal-d3"><div class="num">04</div><h3>Continuous updates</h3><p>Members receive consistent upgrades. New models are folded into the same suite.</p></div>
-</div></div></section>
-<section id="products"><div class="container">
-<p class="eyebrow reveal">The Suite</p>
-<h2 class="section-title reveal">Four tools. One shared <em>system</em>.</h2>
-<p class="section-desc reveal">Each tool focuses on one layer of the market while sharing the same internal language.</p>
-<div class="product-grid">
-<article class="product-card reveal"><span class="badge badge-tier">Ultimate +</span><div class="title">◎✦ [Ultimate +] Apex Structure</div><p class="outcome">Puts higher-timeframe sequence, cross-asset divergence and the entry trigger on a single screen. Alerts only when all three agree.</p><span class="badge badge-status">Higher TF · SMT · CISD</span><p class="spec">A focus on HTF structure, fractal model, SMT + CISD with alerts.</p><div class="ctas"><a href="#" class="btn btn-ghost">Read Full Docs</a><a href="#" class="btn btn-primary">TradingView Link</a></div></article>
-<article class="product-card reveal reveal-d1"><span class="badge badge-tier">Ultimate +</span><div class="title">◎✦ [Ultimate +] Void Scanner</div><p class="outcome">Detects five kinds of price imbalance, tracks each through its full life, and marks where the correlated market fills a gap that yours did not.</p><span class="badge badge-status">FVGs · IFVGs · SMT Fill</span><p class="spec">A focus on FVGs, Inverse FVGs, Suspension Blocks, HTF Gaps + LTF SMT Fill.</p><div class="ctas"><a href="#" class="btn btn-ghost">Read Full Docs</a><a href="#" class="btn btn-primary">TradingView Link</a></div></article>
-<article class="product-card reveal reveal-d2"><span class="badge badge-tier">Ultimate +</span><div class="title">◎✦ [Ultimate +] Cycle Map</div><p class="outcome">Maps the market into seven nested time cycles and highlights every point where correlated assets disagree inside one of them.</p><span class="badge badge-status">Nested cycles · Disagreement</span><p class="spec">A focus on quarterly / nano cycles and cross-asset disagreement markers.</p><div class="ctas"><a href="#" class="btn btn-ghost">Read Full Docs</a><a href="#" class="btn btn-primary">TradingView Link</a></div></article>
-<article class="product-card reveal reveal-d3"><span class="badge badge-tier">Collab +</span><div class="title">◎✦ [Collab +] Session Atlas</div><p class="outcome">Profiles the sessions of the day and the last completed higher-timeframe period, stacking multiple timeframes of candles beside price so the map is ready before the open.</p><span class="badge badge-status">Coming soon</span><p class="spec">A focus on session & HTF candle profiling and key formations.</p><div class="ctas"><a href="#" class="btn btn-ghost">Read Full Docs</a><a href="#" class="btn btn-primary">TradingView Link</a></div></article>
-</div></div></section>
-<section><div class="container">
-<p class="eyebrow reveal">How it works</p>
-<h2 class="section-title reveal">Three steps. One clear <em>outcome</em>.</h2>
-<div class="steps" style="margin-top:2rem">
-<div class="step reveal"><div class="label">Step 1</div><h3><em>Claim</em> access</h3><p>Join via the membership portal and select your plan.</p></div>
-<div class="step reveal reveal-d1"><div class="label">Step 2</div><h3>Input your TradingView <em>username</em></h3><p>Connect the username that will receive the invite-only scripts.</p></div>
-<div class="step reveal reveal-d2"><div class="label">Step 3</div><h3><em>Slap</em> it onto your chart</h3><p>Open the indicators on TradingView and the shared system is live.</p></div>
-</div></div></section>
-<section id="pricing"><div class="container">
-<p class="eyebrow reveal">Pricing</p>
-<h2 class="section-title reveal">Simple pricing, clear <em>deliverables</em>.</h2>
-<p class="section-desc reveal">Start with a free trial. Lock your price. Cancel whenever you want.</p>
-<div class="pricing-grid">
-<div class="plan reveal"><div class="plan-header"><h3>Core</h3><span class="billing">Monthly</span></div><div class="price-row"><span class="price">$29</span></div><p class="period">Billed monthly · 5-day free trial</p><ul><li>Access to one tool of your choice</li><li>Standard alerts</li><li>Community updates</li><li>Email support</li></ul><a href="#" class="btn btn-ghost">Get access</a></div>
-<div class="plan featured reveal reveal-d1"><div class="plan-header"><h3>Ultimate +</h3><span class="badge badge-save">Save 19%</span></div><div class="price-row"><span class="old-price">$99</span><span class="price">$79</span></div><p class="period">Billed monthly · Quarterly available</p><ul><li>Apex Structure + Void Scanner + Cycle Map</li><li>Full correlation engine</li><li>Advanced & multi-condition alerts</li><li>Priority updates & 24–48h support</li><li>Price lock guarantee</li><li>14-day money-back</li></ul><a href="#" class="btn btn-accent">Get access</a><p class="whisper" style="text-align:center">Try for 5 days, completely free.</p></div>
-<div class="plan reveal reveal-d2"><div class="plan-header"><h3>Full Suite</h3><span class="billing">Everything</span></div><div class="price-row"><span class="price">$99</span></div><p class="period">All four tools + early access</p><ul><li>Everything in Ultimate +</li><li>Session Atlas included</li><li>Early access to new models</li><li>Direct line to the team</li><li>Lifetime price lock option</li></ul><a href="#" class="btn btn-ghost">Get access</a></div>
-</div></div></section>
-<section id="reviews"><div class="container"><p class="eyebrow reveal">Loved by traders</p><h2 class="section-title reveal">Even our worst review is a <em>good</em> one.</h2><p class="section-desc reveal">Real comments from people who actually use the tools every day.</p></div>
-<div class="testimonial-marquee" style="margin-top:1.5rem"><div class="testimonial-track">
-<div class="review"><div class="stars">★★★★★</div><p>“The shared correlation engine is what sold me.”</p><div class="author">Marcus T.</div><div class="meta">FX & Indices · March 2026</div></div>
-<div class="review"><div class="stars">★★★★★</div><p>“Void Scanner’s life-cycle tracking is the <em>cleanest</em> gap tool I’ve used.”</p><div class="author">Priya K.</div><div class="meta">Crypto swing · February 2026</div></div>
-<div class="review"><div class="stars">★★★★★</div><p>“Finally a structure tool that doesn’t turn the chart into spaghetti.”</p><div class="author">James R.</div><div class="meta">Futures · January 2026</div></div>
-<div class="review"><div class="stars">★★★★☆</div><p>“Cycle Map helped me stop over-trading mid-cycle noise.”</p><div class="author">Elena V.</div><div class="meta">Equities · December 2025</div></div>
-<div class="review"><div class="stars">★★★★★</div><p>“Support actually replies in under a day and the updates keep coming.”</p><div class="author">Daniel S.</div><div class="meta">Multi-asset · March 2026</div></div>
-<div class="review"><div class="stars">★★★★★</div><p>“Session Atlas alone is worth it if you trade the open.”</p><div class="author">Aisha M.</div><div class="meta">US session · February 2026</div></div>
-<div class="review"><div class="stars">★★★★★</div><p>“The shared correlation engine is what sold me.”</p><div class="author">Marcus T.</div><div class="meta">FX & Indices · March 2026</div></div>
-<div class="review"><div class="stars">★★★★★</div><p>“Void Scanner’s life-cycle tracking is the <em>cleanest</em> gap tool I’ve used.”</p><div class="author">Priya K.</div><div class="meta">Crypto swing · February 2026</div></div>
-<div class="review"><div class="stars">★★★★★</div><p>“Finally a structure tool that doesn’t turn the chart into spaghetti.”</p><div class="author">James R.</div><div class="meta">Futures · January 2026</div></div>
-<div class="review"><div class="stars">★★★★☆</div><p>“Cycle Map helped me stop over-trading mid-cycle noise.”</p><div class="author">Elena V.</div><div class="meta">Equities · December 2025</div></div>
-<div class="review"><div class="stars">★★★★★</div><p>“Support actually replies in under a day and the updates keep coming.”</p><div class="author">Daniel S.</div><div class="meta">Multi-asset · March 2026</div></div>
-<div class="review"><div class="stars">★★★★★</div><p>“Session Atlas alone is worth it if you trade the open.”</p><div class="author">Aisha M.</div><div class="meta">US session · February 2026</div></div>
-</div></div></section>
-<section id="faq"><div class="container">
-<p class="eyebrow reveal">FAQ</p>
-<h2 class="section-title reveal">Common questions</h2>
-<input type="search" class="faq-search reveal" placeholder="Search the whole set…" id="faqSearch"/>
-<div class="faq-list" id="faqList">
-<details class="reveal" data-q="what is singularity"><summary>What is Singularity?</summary><div class="answer"><div>Singularity builds TradingView tools for traders who work with higher-timeframe structure and correlated markets. The tools give context and alerts. They do not give financial advice.<a href="#">Read the guide →</a></div></div></details>
-<details class="reveal" data-q="what do i get"><summary>What do I get when I join?</summary><div class="answer"><div>You get access to the tools in your plan. Claim them in a few steps: join, connect your TradingView username, and add the indicator to a chart.<a href="#">Read the guide →</a></div></div></details>
-<details class="reveal" data-q="free trial"><summary>Is there a free trial?</summary><div class="answer"><div>Yes. Every plan starts with a 5-day free trial. You can cancel anytime during the trial and you will not be charged.<a href="#">Read the guide →</a></div></div></details>
-<details class="reveal" data-q="markets"><summary>Do the tools work on all markets?</summary><div class="answer"><div>They are built for any market that has correlated instruments and clear higher-timeframe structure — FX, indices, crypto, futures and large-cap equities.<a href="#">Read the guide →</a></div></div></details>
-<details class="reveal" data-q="updates"><summary>How often are the tools updated?</summary><div class="answer"><div>We ship continuous improvements. Members receive updates automatically.<a href="#">Read the guide →</a></div></div></details>
-<details class="reveal" data-q="refund"><summary>Can I get a refund?</summary><div class="answer"><div>Yes. Ultimate+ and Full Suite plans include a 14-day money-back guarantee.<a href="#">Read the guide →</a></div></div></details>
-</div></div></section>
-<div class="final-cta"><div class="container">
-<h2 class="reveal">Ready to see the full <em>picture</em>?</h2>
-<p class="reveal">Start with a free trial. No commitment. Price locked for as long as you stay.</p>
-<a href="#pricing" class="btn btn-primary reveal">Get started →</a>
-<p class="whisper reveal">Try for 5 days, completely free.</p>
-</div></div>
-<footer><div class="container">
-<div class="footer-top">
-<div class="footer-brand"><div class="logo"><span class="logo-mark">◎<span class="star">✦</span></span> singularity</div><p>Premium TradingView tools for structure, gaps, cycles and session context.</p></div>
-<div class="footer-col"><h4>Product</h4><a href="#products">Apex Structure</a><a href="#products">Void Scanner</a><a href="#products">Cycle Map</a><a href="#products">Session Atlas</a><a href="#pricing">Pricing</a></div>
-<div class="footer-col"><h4>Docs</h4><a href="#">Getting started</a><a href="#">Apex Structure guide</a><a href="#">Void Scanner guide</a><a href="#">Cycle Map guide</a></div>
-<div class="footer-col"><h4>Community</h4><a href="#">Discord</a><a href="#">Support</a><a href="#">Blog</a><a href="#">Contact</a></div>
-<div class="footer-col"><h4>Legal</h4><a href="#">Terms</a><a href="#">Privacy</a><a href="#">Refund policy</a></div>
-</div>
-<div class="footer-bottom"><span>© 2026 Singularity. All rights reserved.</span><span>Tools are educational and analytical. Not financial advice.</span></div>
-<div class="giant-logo" aria-hidden="true">singularity</div>
-</div></footer>
-<script>
-const observer=new IntersectionObserver(e=>{e.forEach(t=>{if(t.isIntersecting)t.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-const search=document.getElementById('faqSearch'),items=document.querySelectorAll('#faqList details');
-if(search)search.addEventListener('input',()=>{const q=search.value.toLowerCase().trim();items.forEach(d=>{const text=(d.dataset.q+' '+d.textContent).toLowerCase();d.style.display=!q||text.includes(q)?'':'none'})});
-const header=document.querySelector('header');
-window.addEventListener('scroll',()=>{header.style.background=window.scrollY>16?'rgba(10,10,15,.92)':'rgba(10,10,15,.82)'},{passive:true});
-</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Singularity — Deterministic Compute Orchestration</title>
+    <meta name="description" content="Singularity unifies heterogeneous cluster scheduling, reproducible pipelines, and live telemetry in one control plane." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

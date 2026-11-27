@@ -1,25 +1,33 @@
-# Singularity
+# Singularity Landing (Clean Room)
 
-Premium TradingView tools landing page for the **Singularity** brand.
-
-## Live
-
-Open `index.html` locally or enable GitHub Pages on this repository.
-
-## What’s included
-
-- Dark modern single-page site
-- Hero + social proof
-- Four product sections (Apex Structure, Void Scanner, Cycle Map, Session Atlas)
-- Pricing plans
-- Reviews
-- FAQ
-- Fully original copy and design for the Singularity brand
+Premium React + TypeScript + Vite landing page for **Singularity** — deterministic compute orchestration for frontier research & enterprise AI.
 
 ## Stack
 
-Pure HTML + CSS (no build step). Uses Google Fonts (Inter + Instrument Serif).
+- React 18 + TypeScript
+- Vite 5
+- lucide-react (icons)
+- Space Grotesk + Inter (Google Fonts)
+- Pure CSS design tokens (no Tailwind)
 
----
+## Quick start
 
-Not affiliated with any other trading-tool vendor.
+```bash
+npm install
+npm run dev
+```
+
+Open http://localhost:5173
+
+## Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start Vite dev server |
+| `npm run build` | Type-check + production build |
+| `npm run preview` | Preview production build |
+
+## Notes
+
+All placeholder copy, metrics, partner names, and testimonials are fictional.  
+Review `ASSETS_TODO.md` and replace them with production assets before launch.
